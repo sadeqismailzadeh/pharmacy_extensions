@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Dana and Karafarin Checker",
+  "version": "1.1",
+  "description": "استخراج داده‌های بیمه دانا و کارآفرین و محاسبه مبالغ قابل پرداخت",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "محاسبه و چاپ لیست دانا"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گزارش نهایی محاسبات دارو</title>
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      margin: 30px;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #222;
+      padding-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #777;
+      padding: 10px;
+      text-align: right;
+      font-size: 13px;
+    }
+    th {
+      background-color: #e9eef4;
+      font-weight: bold;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f4f8fb;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+    .total-row {
+      font-weight: bold;
+      background-color: #eaeaea !important;
+    }
+    @media print {
+      body { margin: 10px; }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>گزارش تفکیکی درصد تعهد سازمان</h2>
+  </header>
+
+  <table id="resultTable">
+    <thead>
+      <tr>
+        <th>کد دارو</th>
+        <th>نام دارو</th>
+        <th>تعداد</th>
+        <th>قیمت کل (ریال)</th>
+        <th>مبلغ پرداختی بیمار (ریال)</th>
+        <th>درصد تعهد سازمان</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be populated dynamically -->
+    </tbody>
+  </table>
+
+  <script src="print.js"></script>
+</body>
+</html>
