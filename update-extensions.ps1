@@ -45,10 +45,10 @@ param(
 # ===================== SETTINGS: EDIT THESE =====================
 
 # GitHub account (user or organization) that owns the repository.
-$Owner       = "OWNER"
+$Owner       = "sadeqismailzadeh"
 
 # Repository name. The repo must be PUBLIC (no login is used).
-$Repo        = "REPO"
+$Repo        = "pharmacy_extensions"
 
 # Branch to follow. Users always get the newest commit of this branch.
 $Branch      = "main"
