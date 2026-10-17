@@ -11,10 +11,10 @@
 
   HOW IT GETS GIT
   ---------------
-    1. If git is already installed on the PC, it uses that.
-    2. If not, it downloads "MinGit" (the official minimal Git for Windows
-       build, a plain zip: no installer, no admin rights) into a private tools
-       folder and uses that instead.
+  It always uses its own private copy of "MinGit" (the official minimal Git
+  for Windows build, a plain zip: no installer, no admin rights). MinGit is
+  downloaded into a private tools folder on the first run and kept up to date.
+  Any git installed on the PC is ignored.
 
   WHAT IT DOES NOT DO
   -------------------
@@ -103,7 +103,7 @@ function Get-ExtVersion([string]$dir) {
 # Ensure-MinGit
 #   Makes sure a working copy of MinGit exists in $MinGitDir and is current.
 #   Returns the full path to git.exe. Throws an error if that is impossible.
-#   Only called when the PC has no git of its own.
+#   Always used: the script never relies on a system-wide git.
 # -----------------------------------------------------------------------------
 function Ensure-MinGit {
   $gitExe  = Join-Path $MinGitDir "cmd\git.exe"        # the executable we want
@@ -243,10 +243,8 @@ try {
   $before = @{}
   foreach ($e in $Extensions) { $before[$e] = Get-ExtVersion (Join-Path $InstallRoot $e) }
 
-  # Find git: use the system's git if there is one, otherwise get MinGit.
-  $sys = Get-Command git -ErrorAction SilentlyContinue
-  if ($sys) { $git = $sys.Source }
-  else      { $git = Ensure-MinGit }          # throws an error if this fails
+  # Get MinGit (downloads it on first run, updates it when a newer release exists).
+  $git = Ensure-MinGit                        # throws an error if this fails
 
   # Do the actual update.
   Write-Host "Syncing with git ($git) ..."
